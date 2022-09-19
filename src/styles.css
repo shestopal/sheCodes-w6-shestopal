@@ -1,0 +1,136 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  color: #fafafa;
+  background: #e7eaf6;
+}
+.weather {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background: #8f9eb4ad;
+  height: 50%;
+  border-radius: 5px;
+  margin: 10% auto;
+  max-width: 60vw;
+  padding: 20px;
+}
+a {
+  text-decoration: none;
+  color: #e7eaf6;
+}
+a:hover {
+  color: #0278ae;
+}
+.cities {
+  margin-top: 20px;
+  padding: 0;
+}
+
+.city {
+  display: inline;
+  margin-right: 30px;
+}
+
+.enterCity {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.form-control {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  border-color: #38598b;
+  border-radius: 4px;
+  height: 40px;
+  padding: 5px;
+  background: #e7eaf6;
+}
+
+.btn {
+  background: #0278ae;
+  color: #fafafa;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  border-color: #38598b;
+  margin-left: 10px;
+  border-radius: 4px;
+  height: auto;
+  padding: 5px;
+  cursor: pointer;
+  width: 70px;
+}
+
+.btn:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  transition: ease-in ease-in-out 240ms;
+}
+
+.green {
+  background: green;
+  cursor: pointer;
+}
+
+.green:hover {
+  border-color: rgb(81, 99, 53);
+  background: #6e838d;
+  transition: ease-in ease-in-out 240ms;
+}
+
+.temp {
+  font-weight: 800;
+  color: #0278ae;
+  display: inline;
+}
+
+.main-date {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 20px;
+  width: 50%;
+}
+
+.main-temp {
+  font-size: 14px;
+}
+p {
+  margin: 0;
+}
+
+.your-city {
+  font-weight: 600;
+  color: #0278ae;
+  display: inline;
+  margin-right: 5px;
+}
+
+.degrees {
+  font-size: 26px;
+}
+.fa-sun {
+  color: green;
+  font-size: 20px;
+  text-align: center;
+}
+
+.week {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day {
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+}
+
+.day-img {
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+}
+
+.day-temp {
+  text-align: center;
+}
