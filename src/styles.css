@@ -119,6 +119,16 @@ p {
   justify-content: space-between;
 }
 
+.week-day {
+  border: solid 1px;
+  width: 100px;
+  border-radius: 4px;
+  height: 120px;
+  background: #0278ae;
+  display: grid;
+  align-content: center;
+}
+
 .day {
   text-align: center;
   font-weight: 600;
