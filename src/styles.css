@@ -3,24 +3,38 @@ body {
   color: #fafafa;
   background: #e7eaf6;
 }
+
 .weather {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  background: #8f9eb4ad;
+  background: #222831;
   height: 50%;
   border-radius: 5px;
   margin: 10% auto;
   max-width: 700px;
   padding: 20px;
+  position: relative;
 }
+
+.icon-weather {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
 a {
   text-decoration: none;
   color: #e7eaf6;
 }
 a:hover {
-  color: #0278ae;
+  color: #ff5722;
 }
+
+.today-weather {
+  margin-bottom: 10px;
+}
+
 .cities {
   margin-top: 20px;
   padding: 0;
@@ -47,7 +61,7 @@ a:hover {
 }
 
 .btn {
-  background: #0278ae;
+  background: #ff5722;
   color: #fafafa;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
@@ -56,24 +70,20 @@ a:hover {
   border-radius: 4px;
   height: auto;
   padding: 5px;
-  cursor: pointer;
-  width: 70px;
+  width: 75px;
 }
 
 .btn:hover {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  transition: ease-in ease-in-out 240ms;
+  transition: ease-in ease-in-out 300ms;
+  background: #ff895d;
 }
 
-.green {
-  background: green;
-  cursor: pointer;
+.current {
+  background: #005689;
 }
 
-.green:hover {
-  border-color: rgb(81, 99, 53);
-  background: #6e838d;
+.current:hover {
+  background: #007cb9;
   transition: ease-in ease-in-out 240ms;
 }
 
@@ -124,7 +134,7 @@ p {
   width: 100px;
   border-radius: 4px;
   height: 120px;
-  background: #0278ae;
+  background: #007cb9;
   display: grid;
   align-content: center;
 }
