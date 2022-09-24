@@ -126,6 +126,7 @@ p {
   color: #0278ae;
   display: inline;
   margin-right: 5px;
+  text-transform: capitalize;
 }
 
 .degrees {
