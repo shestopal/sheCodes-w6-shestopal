@@ -4,7 +4,15 @@ let date = now.getDate();
 let hour = now.getHours();
 let minutes = now.getMinutes();
 
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 let day = days[now.getDay()];
 
 let dateToday = document.querySelector(".date");
@@ -21,18 +29,18 @@ let timeToday = document.querySelector(".time");
 timeToday.innerHTML = `${hour}:${minutes}`;
 
 let months = [
-  "Jan",
-  "Feb",
+  "January",
+  "February",
   "March",
-  "Apr",
+  "April",
   "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];
 let month = months[now.getMonth()];
 
@@ -89,8 +97,8 @@ submitBtn.addEventListener("submit", submitCity);
 
 function showWeather(response) {
   let yourCity = document.querySelector(".your-city");
-  let temperature = document.querySelector(".temp");
   yourCity.innerHTML = `${response.data.name}`;
+  let temperature = document.querySelector(".temp");
   temperature.innerHTML = Math.round(response.data.main.temp);
   let wind = document.querySelector(".wind");
   wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}km/h`;
