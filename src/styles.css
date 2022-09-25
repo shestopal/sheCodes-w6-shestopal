@@ -36,7 +36,6 @@ body {
 }
 
 .today-weather {
-  margin-bottom: 10px;
   height: 50px;
 }
 .today-weather .active {
@@ -126,12 +125,15 @@ body {
 .degrees {
   font-size: 20px;
 }
-.fa-sun {
-  color: green;
-  font-size: 20px;
-  text-align: center;
+
+.weather-descr-text {
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
+.weather-descr-img {
+  height: 50px;
+}
 .week {
   display: flex;
   justify-content: space-between;

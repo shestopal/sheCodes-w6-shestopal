@@ -64,10 +64,13 @@ function submitCity(event) {
     let humidity = document.querySelector(".humidity");
     humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
 
-    // let weatherImg = document.querySelector(".weather-img");
-    //weatherImg.setAttribute(
-    // "src",
-    //`https://openweathermap.org/img/wn/${response.data.weather[0].//icon}@2x.png`);
+    let weatherImg = document.querySelector(".weather-descr-img");
+    weatherImg.setAttribute(
+    "src",
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    
+    let weatherDescr = document.querySelector(".weather-descr-text");
+    weatherDescr.innerHTML = `Info: ${response.data.weather[0].description}`;
 
     console.log(response);
   }
@@ -95,6 +98,16 @@ function showWeather(response) {
   wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}km/h`;
   let humidity = document.querySelector(".humidity");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+
+
+  let weatherImg = document.querySelector(".weather-descr-img");
+  weatherImg.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  let weatherDescr = document.querySelector(".weather-descr-text");
+  weatherDescr.innerHTML = `Info: ${response.data.weather[0].description}`;
   console.log(response);
 }
 
