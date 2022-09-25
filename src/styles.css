@@ -4,7 +4,6 @@ body {
   background: #e7eaf6;
 }
 
-
 .weather {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
@@ -15,6 +14,7 @@ body {
   margin: 5px auto;
   max-width: 700px;
   padding: 20px;
+  position: relative;
 }
 
 .icon-weather {
@@ -31,22 +31,19 @@ body {
   color: #ff5722;
 }
 
-
-.degrees a{
-color: #e7eaf6;
+.degrees a {
+  color: #e7eaf6;
 }
 
 .today-weather {
   margin-bottom: 10px;
   height: 50px;
-  
 }
-.today-weather .active{
-color: #38598b;
-text-decoration: none;
-cursor: default;
+.today-weather .active {
+  color: #38598b;
+  text-decoration: none;
+  cursor: default;
 }
-
 
 .cities {
   margin-top: 20px;
@@ -180,6 +177,6 @@ cursor: default;
   text-decoration: underline;
 }
 
-.contacts-link:hover{
+.contacts-link:hover {
   color: #ff5722;
 }
