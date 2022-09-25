@@ -4,19 +4,7 @@ body {
   background: #e7eaf6;
 }
 
-.contacts {
-  position: absolute;
-  bottom: -25px;
-  left: 5px;
-}
-.contacts-link {
-  color: #222831;
-  text-decoration: underline;
-}
 
-.contacts-text {
-  color: #222831;
-}
 .weather {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
@@ -24,10 +12,9 @@ body {
   background: #222831;
   height: 50%;
   border-radius: 5px;
-  margin: 10% auto;
+  margin: 5px auto;
   max-width: 700px;
   padding: 20px;
-  position: relative;
 }
 
 .icon-weather {
@@ -36,17 +23,30 @@ body {
   top: 15px;
 }
 
-a {
+.city a {
   text-decoration: none;
   color: #e7eaf6;
 }
-a:hover {
+.city a:hover {
   color: #ff5722;
+}
+
+
+.degrees a{
+color: #e7eaf6;
 }
 
 .today-weather {
   margin-bottom: 10px;
+  height: 50px;
+  
 }
+.today-weather .active{
+color: #38598b;
+text-decoration: none;
+cursor: default;
+}
+
 
 .cities {
   margin-top: 20px;
@@ -104,6 +104,7 @@ a:hover {
   font-weight: 800;
   color: #0278ae;
   display: inline;
+  margin: 0 5px;
 }
 
 .main-date {
@@ -117,20 +118,16 @@ a:hover {
 .main-temp {
   font-size: 14px;
 }
-p {
-  margin: 0;
-}
 
 .your-city {
   font-weight: 600;
   color: #0278ae;
   display: inline;
-  margin-right: 5px;
   text-transform: capitalize;
 }
 
 .degrees {
-  font-size: 26px;
+  font-size: 20px;
 }
 .fa-sun {
   color: green;
@@ -143,6 +140,9 @@ p {
   justify-content: space-between;
 }
 
+.time {
+  margin: 0 10px;
+}
 .week-day {
   border: solid 1px;
   width: 100px;
@@ -167,4 +167,19 @@ p {
 
 .day-temp {
   text-align: center;
+}
+
+.contacts {
+  max-width: 700px;
+  padding: 0;
+  color: #222831;
+}
+
+.contacts-link {
+  color: #222831;
+  text-decoration: underline;
+}
+
+.contacts-link:hover{
+  color: #ff5722;
 }
