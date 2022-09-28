@@ -1,4 +1,5 @@
-///////1
+//Date, month, time
+
 let now = new Date();
 let date = now.getDate();
 let hour = now.getHours();
@@ -47,33 +48,30 @@ let month = months[now.getMonth()];
 let monthToday = document.querySelector(".month");
 monthToday.innerHTML = `${month}`;
 
-///////2
+//Search city (submit btn, deatails about weather for choosen city)
+function showTemperature(response) {
+  let temperature = document.querySelector(".temp");
+  let wind = document.querySelector(".wind");
+  let humidity = document.querySelector(".humidity");
+  let weatherImg = document.querySelector(".weather-descr-img");
+  let weatherDescr = document.querySelector(".weather-descr-text");
+
+  celsiusTemp = response.data.main.temp;
+  temperature.innerHTML = Math.round(celsiusTemp);
+  wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}km/h`;
+  humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  weatherImg.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  weatherDescr.innerHTML = `Info: ${response.data.weather[0].description}`;
+  console.log(response);
+}
+
 function submitCity(event) {
   event.preventDefault();
   let apiKey = "2bd326a60dc89a53287e446e819664df";
   let searchInput = document.querySelector("#inputCity");
-
-  function showTemperature(response) {
-    let temperature = document.querySelector(".temp");
-
-    celsiusTemp = response.data.main.temp;
-
-    temperature.innerHTML = Math.round(celsiusTemp);
-    let wind = document.querySelector(".wind");
-    wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}km/h`;
-    let humidity = document.querySelector(".humidity");
-    humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
-
-    let weatherImg = document.querySelector(".weather-descr-img");
-    weatherImg.setAttribute(
-    "src",
-      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    
-    let weatherDescr = document.querySelector(".weather-descr-text");
-    weatherDescr.innerHTML = `Info: ${response.data.weather[0].description}`;
-
-    console.log(response);
-  }
   let newCity = document.querySelector(".your-city");
   newCity.innerHTML = `${searchInput.value}`;
 
@@ -84,29 +82,25 @@ function submitCity(event) {
 let submitBtn = document.querySelector(".enterCity");
 submitBtn.addEventListener("submit", submitCity);
 
-//5hw
+//Search current city (current btn, deatails about weather)
 
 function showWeather(response) {
   let yourCity = document.querySelector(".your-city");
-  yourCity.innerHTML = `${response.data.name}`;
   let temperature = document.querySelector(".temp");
-
-  celsiusTemp = Math.round(response.data.main.temp);
-
-  temperature.innerHTML = `${celsiusTemp}`;
   let wind = document.querySelector(".wind");
-  wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}km/h`;
   let humidity = document.querySelector(".humidity");
-  humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
-
-
   let weatherImg = document.querySelector(".weather-descr-img");
+  let weatherDescr = document.querySelector(".weather-descr-text");
+
+  yourCity.innerHTML = `${response.data.name}`;
+  celsiusTemp = Math.round(response.data.main.temp);
+  temperature.innerHTML = `${celsiusTemp}`;
+  wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}km/h`;
+  humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   weatherImg.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-
-  let weatherDescr = document.querySelector(".weather-descr-text");
   weatherDescr.innerHTML = `Info: ${response.data.weather[0].description}`;
   console.log(response);
 }
@@ -120,21 +114,22 @@ function retrievePosition(position) {
 }
 
 function getCurrentpos() {
-  event.preventDefault();
+  document.getElementById("inputCity").value = null;
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
 let button = document.querySelector("#current");
 button.addEventListener("click", getCurrentpos);
 
-//////////////3
+//change C to F and opposite
 
 function displayFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector(".temp");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
