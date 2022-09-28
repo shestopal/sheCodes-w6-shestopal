@@ -70,11 +70,21 @@ function showTemperature(response) {
 
 function submitCity(event) {
   event.preventDefault();
+
   let apiKey = "2bd326a60dc89a53287e446e819664df";
   let searchInput = document.querySelector("#inputCity");
   let newCity = document.querySelector(".your-city");
-  newCity.innerHTML = `${searchInput.value}`;
-
+  let temperature = document.querySelector(".temp");
+  function required() {
+    let empt = searchInput.value;
+    if (empt === "") {
+      newCity.innerHTML = `Enter city name`;
+      temperature.innerHTML = `-`;
+    } else {
+      newCity.innerHTML = `${searchInput.value}`;
+    }
+  }
+  required();
   let ApiLink = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=${apiKey}`;
   axios.get(ApiLink).then(showTemperature);
 }
