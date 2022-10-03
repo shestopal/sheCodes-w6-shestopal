@@ -48,6 +48,36 @@ let month = months[now.getMonth()];
 let monthToday = document.querySelector(".month");
 monthToday.innerHTML = `${month}`;
 
+//forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2 week-day">
+      <h4 class="day">${day}</h4>
+      <img
+        src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-01-512.png"
+        class="day-img" alt="" width="42"
+      />
+      <div class="weather-forecast-temperatures">
+          <span class="day-temp weather-forecast-temperature-max"> 18° </span>
+          <span class="day-temp weather-forecast-temperature-min"> 12° </span>
+      </div>
+    </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
 //Search city (submit btn, deatails about weather for choosen city)
 function showTemperature(response) {
   let temperature = document.querySelector(".temp");
@@ -69,8 +99,6 @@ function showTemperature(response) {
 }
 
 function submitCity(event) {
-  event.preventDefault();
-
   let apiKey = "2bd326a60dc89a53287e446e819664df";
   let searchInput = document.querySelector("#inputCity");
   let newCity = document.querySelector(".your-city");
@@ -87,10 +115,11 @@ function submitCity(event) {
   required();
   let ApiLink = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=${apiKey}`;
   axios.get(ApiLink).then(showTemperature);
+  event.preventDefault();
 }
 
 let submitBtn = document.querySelector(".enterCity");
-submitBtn.addEventListener("submit", submitCity);
+submitBtn.addEventListener("submit", submitCity, false);
 
 //Search current city (current btn, deatails about weather)
 
@@ -160,3 +189,4 @@ let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsius);
 
 submitCity("Lisbon");
+displayForecast();

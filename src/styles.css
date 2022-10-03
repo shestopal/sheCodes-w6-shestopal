@@ -12,7 +12,7 @@ body {
   height: 50%;
   border-radius: 5px;
   margin: 5px auto;
-  max-width: 700px;
+  max-width: fit-content;
   padding: 20px;
   position: relative;
 }
@@ -150,6 +150,7 @@ body {
   background: #007cb9;
   display: grid;
   align-content: center;
+  margin: 3px;
 }
 
 .day {
@@ -181,4 +182,16 @@ body {
 
 .contacts-link:hover {
   color: #ff5722;
+}
+
+.weather-forecast {
+  text-align: center;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+
+.weather-forecast-temperatures {
+  font-size: 13px;
 }
