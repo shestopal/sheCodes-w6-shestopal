@@ -78,6 +78,12 @@ function displayForecast() {
   console.log(forecastHTML);
 }
 
+//forecast getting
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+}
+
 //Search city (submit btn, deatails about weather for choosen city)
 function showTemperature(response) {
   let temperature = document.querySelector(".temp");
@@ -94,6 +100,7 @@ function showTemperature(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  weatherImg.setAttribute("alt", response.data.weather[0].description);
   weatherDescr.innerHTML = `Info: ${response.data.weather[0].description}`;
   console.log(response);
 }
@@ -122,7 +129,6 @@ let submitBtn = document.querySelector(".enterCity");
 submitBtn.addEventListener("submit", submitCity, false);
 
 //Search current city (current btn, deatails about weather)
-
 function showWeather(response) {
   let yourCity = document.querySelector(".your-city");
   let temperature = document.querySelector(".temp");
@@ -140,8 +146,11 @@ function showWeather(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  weatherImg.setAttribute("alt", response.data.weather[0].description);
   weatherDescr.innerHTML = `Info: ${response.data.weather[0].description}`;
   console.log(response);
+
+  getForecast(response.data.coord);
 }
 
 function retrievePosition(position) {
@@ -157,6 +166,7 @@ function getCurrentpos() {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
+getCurrentpos();
 let button = document.querySelector("#current");
 button.addEventListener("click", getCurrentpos);
 
