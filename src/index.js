@@ -104,26 +104,30 @@ function showTemperature(response) {
   weatherDescr.innerHTML = `Info: ${response.data.weather[0].description}`;
   console.log(response);
 }
-
+///////////////////////////////////
 function submitCity(event) {
-  let apiKey = "2bd326a60dc89a53287e446e819664df";
+  event.preventDefault();
   let searchInput = document.querySelector("#inputCity");
   let newCity = document.querySelector(".your-city");
   let temperature = document.querySelector(".temp");
-  function required() {
-    let empt = searchInput.value;
-    if (empt === "") {
-      newCity.innerHTML = `Enter city name`;
-      temperature.innerHTML = `-`;
-    } else {
-      newCity.innerHTML = `${searchInput.value}`;
-    }
+
+  let empt = searchInput.value;
+  if (empt === "") {
+    newCity.innerHTML = `Enter city name`;
+    temperature.innerHTML = `-`;
+  } else {
+    newCity.innerHTML = `${searchInput.value}`;
+    searchCity(searchInput.value);
   }
-  required();
-  let ApiLink = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=${apiKey}`;
-  axios.get(ApiLink).then(showTemperature);
-  event.preventDefault();
 }
+
+function searchCity(city) {
+  let apiKey = "2bd326a60dc89a53287e446e819664df";
+  let ApiLink = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(ApiLink).then(showTemperature);
+}
+
+//////////////////////////////////
 
 let submitBtn = document.querySelector(".enterCity");
 submitBtn.addEventListener("submit", submitCity, false);
@@ -198,5 +202,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", displayCelsius);
 
-submitCity("Lisbon");
+searchCity("Lisbon");
 displayForecast();
