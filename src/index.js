@@ -48,30 +48,47 @@ let month = months[now.getMonth()];
 let monthToday = document.querySelector(".month");
 monthToday.innerHTML = `${month}`;
 
-//forecast
+//forcast date
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+  ];
 
+  
+  return days[day];
+}
+
+//forecast
 function displayForecast(response) {
-  console.log(response.data);
+
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  //let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2 week-day">
-      <h4 class="day">${day}</h4>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML += `<div class="col-2 week-day">
+      <h4 class="day">${formatDay(forecastDay.dt)}</h4>
       <img
-        src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-01-512.png"
+        src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
         class="day-img" alt="" width="42"
       />
       <div class="weather-forecast-temperatures">
-          <span class="day-temp weather-forecast-temperature-max"> 18° </span>
-          <span class="day-temp weather-forecast-temperature-min"> 12° </span>
+          <span class="day-temp weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}°</span>
+          <span class="day-temp weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}°</span>
       </div>
     </div>
-  `;
+  `};
   });
 
   forecastHTML = forecastHTML + `</div>`;
