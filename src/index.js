@@ -61,8 +61,6 @@ function formatDay(timestamp) {
     "Fri",
     "Sat",
   ];
-
-  
   return days[day];
 }
 
@@ -170,6 +168,11 @@ function showWeather(response) {
   );
   weatherImg.setAttribute("alt", response.data.weather[0].description);
   weatherDescr.innerHTML = `Info: ${response.data.weather[0].description}`;
+
+
+
+showTemperature(response);
+
 }
 
 function retrievePosition(position) {
@@ -188,6 +191,7 @@ function getCurrentpos() {
 getCurrentpos();
 let button = document.querySelector("#current");
 button.addEventListener("click", getCurrentpos);
+
 
 //change C to F and opposite
 
